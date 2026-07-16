@@ -15,8 +15,8 @@ export const heroSlides: HeroSlide[] = [
     subCopy:
       'Since 1901. The longest unbroken streak of motorcycling soul on the planet.',
     chips: ['125+ Years of Heritage', '10,000+ Bikes Delivered', '4.9★ Rider Rating'],
-    imageSrc: '/images/hero-1.webp',
-    imageAlt: 'Heritage Motors Royal Enfield showroom exterior at dusk, warm tungsten lights',
+    imageSrc: '/images/hero-1.png',
+    imageAlt: 'Heritage Motors Royal Enfield showroom exterior at dusk, warm tungsten lights reflecting on wet asphalt',
   },
   {
     id: 2,
@@ -24,9 +24,9 @@ export const heroSlides: HeroSlide[] = [
     line2: 'BORN IN 1901',
     subCopy:
       'Every Royal Enfield begins with obsessive craftsmanship — honest metal, built to outlast the road.',
-    chips: ['Chennai Craftmanship', 'Tested Khardung La to Kanyakumari', '125 Years Strong'],
-    imageSrc: '/images/hero-2.webp',
-    imageAlt: 'Royal Enfield bikes lined up in showroom with warm tungsten spotlights',
+    chips: ['Chennai Craftsmanship', '125 Years Strong', 'Tested Khardung La to Kanyakumari'],
+    imageSrc: '/images/hero-2.png',
+    imageAlt: 'Royal Enfield motorcycles lined up inside a showroom with warm tungsten spotlights',
   },
   {
     id: 3,
@@ -34,8 +34,8 @@ export const heroSlides: HeroSlide[] = [
     line2: 'BROTHERHOOD',
     subCopy:
       'Millions of riders worldwide trust the thump. One ride and you\'ll understand why.',
-    chips: ['Himalayan Odyssey Since 2003', 'One Ride Community', '36M+ RE Owners'],
-    imageSrc: '/images/hero-3.webp',
+    chips: ['36M+ RE Owners Worldwide', 'Himalayan Odyssey Since 2003', 'One Ride Community'],
+    imageSrc: '/images/hero-3.png',
     imageAlt: 'Group of Royal Enfield riders gathered outside a garage at golden hour',
   },
 ];
