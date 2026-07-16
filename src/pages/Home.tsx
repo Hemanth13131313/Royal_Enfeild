@@ -1,8 +1,9 @@
-// pages/Home.tsx — Phase 2: Hero (S2) + Ticker (S3)
-// Sections S4–S12 arrive in Phases 3–5.
+// pages/Home.tsx — Phase 3: S2 Hero + S3 Ticker + S4 FeaturedShowcase
+// Sections S5–S12 arrive in Phases 4–5.
 import { usePageMeta } from '../hooks/usePageMeta';
 import { Hero } from '../components/home/Hero';
 import { Ticker } from '../components/layout/Ticker';
+import { FeaturedShowcase } from '../components/home/FeaturedShowcase';
 
 export default function Home() {
   usePageMeta(
@@ -18,15 +19,18 @@ export default function Home() {
       {/* S3 — Offers Ticker */}
       <Ticker />
 
-      {/* S4–S12 placeholder — Phases 3–5 */}
+      {/* S4 — Featured Bike Showcase */}
+      <FeaturedShowcase />
+
+      {/* S5–S12 placeholder — Phases 4–5 */}
       <section className="section-container py-24 text-center">
-        <p className="overline text-[var(--gold)] mb-4">Sections S4 – S12</p>
+        <p className="overline text-[var(--gold)] mb-4">Sections S5 – S12</p>
         <p className="text-[var(--ink-muted)] font-body text-lg max-w-2xl mx-auto leading-relaxed">
-          Featured Showcase · Lineup Carousel · Browse by Type · Lifestyle Banner ·
+          Lineup Carousel · Browse by Type · Lifestyle Banner ·
           Engineering Diagram · CTA Cards · Brand Story · Popular Bikes · Process Steps
         </p>
         <p className="overline text-[var(--ink-muted)] text-xs mt-4">
-          Arriving in Phases 3 – 5
+          Arriving in Phases 4 – 5
         </p>
       </section>
     </>
