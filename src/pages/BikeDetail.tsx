@@ -75,7 +75,7 @@ export default function BikeDetail() {
                 drag="x"
                 dragConstraints={{ left: 0, right: 0 }}
                 dragElastic={0.2}
-                onDragEnd={(e, { offset, velocity }) => {
+                onDragEnd={(_e, { offset }) => {
                   const swipe = offset.x;
                   if (swipe < -50 && bike.colorways && bike.colorways.length > 0) {
                     setActiveColorIdx((prev) => (prev + 1) % bike.colorways!.length);

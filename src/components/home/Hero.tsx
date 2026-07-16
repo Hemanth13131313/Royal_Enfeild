@@ -20,14 +20,14 @@ import { useModal } from '../../hooks/useModal';
 import { Button } from '../ui/Button';
 
 // ── Duration constants ────────────────────────────────────────
+// ── Duration constants ────────────────────────────────────────
 const SLIDE_DURATION_MS = 6000;
-const CROSSFADE_S = 1.2;
 
 // ── Framer variants ───────────────────────────────────────────
 const imageSlide = {
   initial: (dir: number) => ({ opacity: 0, x: dir > 0 ? '100%' : '-100%' }),
-  animate: { opacity: 1, x: 0, transition: { duration: 0.8, ease: [0.33, 1, 0.68, 1] } },
-  exit: (dir: number) => ({ opacity: 0, x: dir > 0 ? '-100%' : '100%', transition: { duration: 0.8, ease: [0.33, 1, 0.68, 1] } }),
+  animate: { opacity: 1, x: 0, transition: { duration: 0.8, ease: [0.33, 1, 0.68, 1] as const } },
+  exit: (dir: number) => ({ opacity: 0, x: dir > 0 ? '-100%' : '100%', transition: { duration: 0.8, ease: [0.33, 1, 0.68, 1] as const } }),
 };
 
 const lineVariants = (delay: number) => ({
