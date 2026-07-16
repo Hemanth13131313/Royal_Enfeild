@@ -101,7 +101,7 @@ export default function Accessories() {
           {ACCESSORIES.map(acc => (
             <div key={acc.id} className="group flex flex-col bg-[var(--bg-panel)] border border-[var(--line-dark)] rounded-2xl overflow-hidden hover:-translate-y-1.5 transition-all duration-300 hover:border-[var(--gold)]">
               <div className="relative aspect-square overflow-hidden bg-[rgba(255,255,255,0.02)]">
-                <img src={acc.image} alt={acc.name} className="w-full h-full object-cover opacity-80 mix-blend-luminosity group-hover:mix-blend-normal transition-all duration-300 group-hover:scale-105" />
+                <img src={acc.image} alt={acc.name} loading="lazy" className="w-full h-full object-cover opacity-80 mix-blend-luminosity group-hover:mix-blend-normal transition-all duration-300 group-hover:scale-105" />
               </div>
               <div className="flex flex-col flex-1 p-5 border-t border-[var(--line-dark)]">
                 <span className="overline text-[var(--gold)] mb-1">{acc.category}</span>
@@ -155,7 +155,7 @@ export default function Accessories() {
                   cart.map(item => (
                     <div key={item.id} className="flex gap-4 p-4 rounded-xl border border-[var(--line-dark)] bg-[var(--bg-panel)] relative group">
                       <div className="w-20 h-20 rounded bg-[rgba(255,255,255,0.05)] overflow-hidden">
-                        <img src={item.image} alt={item.name} className="w-full h-full object-cover" />
+                        <img src={item.image} alt={item.name} loading="lazy" className="w-full h-full object-cover" />
                       </div>
                       <div className="flex flex-col flex-1">
                         <h4 className="font-body font-semibold text-[var(--ink)] pr-6">{item.name}</h4>

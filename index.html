@@ -36,8 +36,8 @@
       rel="stylesheet"
     />
 
-    <!-- Hero image preload (Phase 2 will fill in the real asset) -->
-    <!-- <link rel="preload" as="image" href="/images/hero-1.webp" type="image/webp" /> -->
+    <!-- Hero image preload for LCP (Largest Contentful Paint) optimization -->
+    <link rel="preload" as="image" href="/images/hero-1.png" type="image/png" fetchpriority="high" />
   </head>
   <body>
     <div id="root"></div>
