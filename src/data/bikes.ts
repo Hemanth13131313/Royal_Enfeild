@@ -42,7 +42,7 @@ export const bikes: Bike[] = [
       { name: 'Rebel Red',    hex: '#8A1E1E' },
     ],
     images: {
-      hero: '/images/bike-hunter-350.webp',
+      hero: '/images/bike-hunter-350.png',
       gallery: [],
     },
     popular: true,
@@ -81,7 +81,7 @@ export const bikes: Bike[] = [
       { name: 'Standard Maroon',  hex: '#4A1212' },
     ],
     images: {
-      hero: '/images/bike-bullet-350.webp',
+      hero: '/images/bike-bullet-350.png',
       gallery: [],
     },
   },
@@ -119,7 +119,7 @@ export const bikes: Bike[] = [
       { name: 'Commando Sand',  hex: '#C4A87A' },
     ],
     images: {
-      hero: '/images/bike-classic-350.webp',
+      hero: '/images/bike-classic-350.png',
       gallery: [],
     },
     featured: true,
@@ -158,7 +158,7 @@ export const bikes: Bike[] = [
       { name: 'Stellar Black',   hex: '#1A1A1A' },
     ],
     images: {
-      hero: '/images/bike-meteor-350.webp',
+      hero: '/images/bike-meteor-350.png',
       gallery: [],
     },
   },
@@ -195,7 +195,7 @@ export const bikes: Bike[] = [
       { name: 'Purple Haze',  hex: '#6B3A8A' },
     ],
     images: {
-      hero: '/images/bike-goan-classic-350.webp',
+      hero: '/images/bike-goan-classic-350.png',
       gallery: [],
     },
   },
@@ -232,7 +232,7 @@ export const bikes: Bike[] = [
       { name: 'Force Grey',  hex: '#5A5A65' },
     ],
     images: {
-      hero: '/images/bike-scram-440.webp',
+      hero: '/images/bike-scram-440.png',
       gallery: [],
     },
   },
@@ -270,7 +270,7 @@ export const bikes: Bike[] = [
       { name: 'Poppy Blue',   hex: '#2A5A8A' },
     ],
     images: {
-      hero: '/images/bike-himalayan-450.webp',
+      hero: '/images/bike-himalayan-450.png',
       gallery: [],
     },
     featured: true,
@@ -310,7 +310,7 @@ export const bikes: Bike[] = [
       { name: 'Smoke Silver',  hex: '#7A7A8A' },
     ],
     images: {
-      hero: '/images/bike-guerrilla-450.webp',
+      hero: '/images/bike-guerrilla-450.png',
       gallery: [],
     },
   },
@@ -348,7 +348,7 @@ export const bikes: Bike[] = [
       { name: 'Mark Three',   hex: '#3A3A3A' },
     ],
     images: {
-      hero: '/images/bike-interceptor-650.webp',
+      hero: '/images/bike-interceptor-650.png',
       gallery: [],
     },
     featured: true,
@@ -387,7 +387,7 @@ export const bikes: Bike[] = [
       { name: 'Vallam Red',    hex: '#8A1E1E' },
     ],
     images: {
-      hero: '/images/bike-classic-650.webp',
+      hero: '/images/bike-classic-650.png',
       gallery: [],
     },
   },
@@ -424,7 +424,7 @@ export const bikes: Bike[] = [
       { name: 'Slipstream Blue',       hex: '#1A3A6A' },
     ],
     images: {
-      hero: '/images/bike-continental-gt-650.webp',
+      hero: '/images/bike-continental-gt-650.png',
       gallery: [],
     },
   },
@@ -462,7 +462,7 @@ export const bikes: Bike[] = [
       { name: 'Wild Honey',       hex: '#8A6520' },
     ],
     images: {
-      hero: '/images/bike-bear-650.webp',
+      hero: '/images/bike-bear-650.png',
       gallery: [],
     },
   },
@@ -499,7 +499,7 @@ export const bikes: Bike[] = [
       { name: 'Stencil White',     hex: '#F0EDE6' },
     ],
     images: {
-      hero: '/images/bike-shotgun-650.webp',
+      hero: '/images/bike-shotgun-650.png',
       gallery: [],
     },
   },
@@ -536,7 +536,7 @@ export const bikes: Bike[] = [
       { name: 'Interstellar Green', hex: '#1A4A2A' },
     ],
     images: {
-      hero: '/images/bike-super-meteor-650.webp',
+      hero: '/images/bike-super-meteor-650.png',
       gallery: [],
     },
   },
@@ -572,7 +572,7 @@ export const bikes: Bike[] = [
       { name: 'TBA',  hex: '#1C1C1C' },
     ],
     images: {
-      hero: '/images/bike-bullet-650.webp',
+      hero: '/images/bike-bullet-650.png',
       gallery: [],
     },
     isNew: true,
@@ -609,7 +609,7 @@ export const bikes: Bike[] = [
       { name: 'TBA',  hex: '#1C1C1C' },
     ],
     images: {
-      hero: '/images/bike-flying-flea-c6.webp',
+      hero: '/images/bike-flying-flea-c6.png',
       gallery: [],
     },
     comingSoon: true,
