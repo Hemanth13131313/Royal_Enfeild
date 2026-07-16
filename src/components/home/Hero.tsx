@@ -24,10 +24,10 @@ const SLIDE_DURATION_MS = 6000;
 const CROSSFADE_S = 1.2;
 
 // ── Framer variants ───────────────────────────────────────────
-const imageFade = {
-  initial: { opacity: 0 },
-  animate: { opacity: 1, transition: { duration: CROSSFADE_S, ease: 'easeInOut' as const } },
-  exit:    { opacity: 0, transition: { duration: CROSSFADE_S, ease: 'easeInOut' as const } },
+const imageSlide = {
+  initial: (dir: number) => ({ opacity: 0, x: dir > 0 ? '100%' : '-100%' }),
+  animate: { opacity: 1, x: 0, transition: { duration: 0.8, ease: [0.33, 1, 0.68, 1] } },
+  exit: (dir: number) => ({ opacity: 0, x: dir > 0 ? '-100%' : '100%', transition: { duration: 0.8, ease: [0.33, 1, 0.68, 1] } }),
 };
 
 const lineVariants = (delay: number) => ({
@@ -97,6 +97,7 @@ function StatChip({ text }: { text: string }) {
 // ── Hero ──────────────────────────────────────────────────────
 export function Hero() {
   const [active, setActive] = useState(0);
+  const [direction, setDirection] = useState(1);
   const [paused, setPaused] = useState(false);
   const [touchStart, setTouchStart] = useState<number | null>(null);
   const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
@@ -106,18 +107,20 @@ export function Hero() {
   const total = heroSlides.length;
 
   // ── Navigation helpers ───────────────────────────────────────
-  const goTo = useCallback((idx: number) => {
+  const goTo = useCallback((idx: number, newDirection: number) => {
+    setDirection(newDirection);
     setActive(((idx % total) + total) % total);
   }, [total]);
 
-  const goNext = useCallback(() => goTo(active + 1), [active, goTo]);
-  const goPrev = useCallback(() => goTo(active - 1), [active, goTo]);
+  const goNext = useCallback(() => goTo(active + 1, 1), [active, goTo]);
+  const goPrev = useCallback(() => goTo(active - 1, -1), [active, goTo]);
 
   // ── Auto-advance ─────────────────────────────────────────────
   const resetInterval = useCallback(() => {
     if (intervalRef.current) clearInterval(intervalRef.current);
     if (!paused) {
       intervalRef.current = setInterval(() => {
+        setDirection(1);
         setActive(i => ((i + 1) % total));
       }, SLIDE_DURATION_MS);
     }
@@ -167,10 +170,14 @@ export function Hero() {
       onTouchEnd={handleTouchEnd}
     >
       {/* ── Slide images (crossfade stack) ─────────────────── */}
-      <AnimatePresence>
+      <AnimatePresence initial={false} custom={direction}>
         <motion.div
           key={active}
-          {...imageFade}
+          custom={direction}
+          variants={imageSlide}
+          initial="initial"
+          animate="animate"
+          exit="exit"
           className="absolute inset-0"
           aria-hidden="true"
         >
@@ -338,7 +345,7 @@ export function Hero() {
             role="tab"
             aria-selected={i === active}
             aria-label={`Slide ${i + 1}`}
-            onClick={() => { goTo(i); setPaused(true); }}
+            onClick={() => { goTo(i, i > active ? 1 : -1); setPaused(true); }}
             className={clsx(
               'rounded-full transition-all duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--gold)]',
               i === active

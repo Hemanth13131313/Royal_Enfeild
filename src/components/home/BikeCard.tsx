@@ -67,6 +67,7 @@ export function BikeCard({ bike, theme = 'dark' }: BikeCardProps) {
           alt={bike.name}
           className="relative z-10 w-full h-full object-contain transition-transform duration-300 group-hover:scale-105 drop-shadow-xl"
           loading="lazy"
+          draggable="false"
         />
       </Link>
 

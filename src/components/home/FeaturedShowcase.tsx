@@ -231,6 +231,7 @@ export function FeaturedShowcase() {
                   className="w-full max-w-[480px] lg:max-w-full object-contain drop-shadow-[0_20px_40px_rgba(0,0,0,.8)]"
                   style={{ maxHeight: '380px' }}
                   loading="lazy"
+                  draggable="false"
                   decoding="async"
                 />
               </motion.div>
