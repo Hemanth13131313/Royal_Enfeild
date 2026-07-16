@@ -63,15 +63,26 @@ export default function BikeDetail() {
             
             <AnimatePresence mode="wait">
               <motion.img
-                key={activeColorIdx} // re-animate when color changes
-                src={bike.images.hero} // We don't have per-colorway images in the mock data, so just use hero image for now
+                key={activeColorIdx}
+                src={bike.images.hero}
                 alt={`${bike.name} in ${activeColor?.name || 'Standard'}`}
-                className="relative z-10 w-[85%] h-auto object-contain drop-shadow-2xl"
+                className="relative z-10 w-[85%] h-auto object-contain drop-shadow-2xl cursor-grab active:cursor-grabbing"
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -20 }}
                 transition={{ duration: 0.3 }}
                 loading="eager"
+                drag="x"
+                dragConstraints={{ left: 0, right: 0 }}
+                dragElastic={0.2}
+                onDragEnd={(e, { offset, velocity }) => {
+                  const swipe = offset.x;
+                  if (swipe < -50 && bike.colorways && bike.colorways.length > 0) {
+                    setActiveColorIdx((prev) => (prev + 1) % bike.colorways!.length);
+                  } else if (swipe > 50 && bike.colorways && bike.colorways.length > 0) {
+                    setActiveColorIdx((prev) => (prev - 1 + bike.colorways!.length) % bike.colorways!.length);
+                  }
+                }}
               />
             </AnimatePresence>
             
