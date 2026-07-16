@@ -20,8 +20,7 @@ import { useModal } from '../../hooks/useModal';
 import { Button } from '../ui/Button';
 
 // ── Duration constants ────────────────────────────────────────
-// ── Duration constants ────────────────────────────────────────
-const SLIDE_DURATION_MS = 6000;
+const SLIDE_DURATION_MS = 20000;
 
 // ── Framer variants ───────────────────────────────────────────
 const imageSlide = {
