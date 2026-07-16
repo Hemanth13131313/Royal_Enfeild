@@ -18,13 +18,13 @@ This is a front-end showroom experience modelled on premium motorcycle dealershi
 |---|---|---|
 | 0 | Scaffold & Design Tokens | ✅ Complete |
 | 1 | Data Layer & App Shell (Navbar, Ticker, Footer) | ✅ Complete |
-| 2 | Hero Carousel (S2) | ⬜ Pending |
-| 3 | Featured Showcase (S4) | ⬜ Pending |
-| 4 | Lineup Carousel + Browse by Type | ⬜ Pending |
-| 5 | Home Sections S7–S12 | ⬜ Pending |
-| 6 | Inner Pages | ⬜ Pending |
-| 7 | Test-Ride Modal | ⬜ Pending |
-| 8 | Polish, QA & Ship | ⬜ Pending |
+| 2 | Hero Carousel (S2) | ✅ Complete |
+| 3 | Featured Showcase (S4) | ✅ Complete |
+| 4 | Lineup Carousel + Browse by Type | ✅ Complete |
+| 5 | Home Sections S7–S12 | ✅ Complete |
+| 6 | Inner Pages | ✅ Complete |
+| 7 | Test-Ride Modal | ✅ Complete |
+| 8 | Polish, QA & Ship | ✅ Complete |
 
 ---
 
