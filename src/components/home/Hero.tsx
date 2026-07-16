@@ -20,7 +20,7 @@ import { useModal } from '../../hooks/useModal';
 import { Button } from '../ui/Button';
 
 // ── Duration constants ────────────────────────────────────────
-const SLIDE_DURATION_MS = 20000;
+const SLIDE_DURATION_MS = 5000;
 
 // ── Framer variants ───────────────────────────────────────────
 const imageSlide = {
@@ -155,6 +155,21 @@ export function Hero() {
     setTouchStart(null);
   }, [touchStart, goNext, goPrev]);
 
+  // ── Wheel (Trackpad / Horizontal Scroll) ─────────────────────
+  const wheelTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const handleWheel = useCallback((e: React.WheelEvent) => {
+    if (Math.abs(e.deltaX) > 20) {
+      if (wheelTimeout.current) return; // debounce
+      if (e.deltaX > 0) goNext();
+      else goPrev();
+      setPaused(true);
+      
+      wheelTimeout.current = setTimeout(() => {
+        wheelTimeout.current = null;
+      }, 500);
+    }
+  }, [goNext, goPrev]);
+
   const slide = heroSlides[active];
 
   // ── Render ───────────────────────────────────────────────────
@@ -167,6 +182,7 @@ export function Hero() {
       onMouseLeave={() => setPaused(false)}
       onTouchStart={handleTouchStart}
       onTouchEnd={handleTouchEnd}
+      onWheel={handleWheel}
     >
       {/* ── Slide images (crossfade stack) ─────────────────── */}
       <AnimatePresence initial={false} custom={direction}>
