@@ -87,6 +87,31 @@ export const accessories: Accessory[] = [
     image: '/images/acc-alloy-wheels.webp',
     description: '7-spoke cast aluminium wheels allow the use of tubeless tires. Exact fit for Interceptor/GT 650.',
   },
+  // ── COLLECTIBLES ─────────────────────────────────────────────
+  {
+    id: 'coll-classic-350-scale-1-12',
+    name: 'Classic 350 Scale Model (1:12)',
+    category: 'Collectibles',
+    price: 1400,
+    image: '/images/coll-classic-350.webp',
+    description: 'Highly detailed 1:12 scale die-cast model of the iconic Classic 350. Features moving wheels and working suspension.',
+  },
+  {
+    id: 'coll-interceptor-650-scale-1-12',
+    name: 'Interceptor 650 Scale Model (1:12)',
+    category: 'Collectibles',
+    price: 2100,
+    image: '/images/coll-interceptor-650.webp',
+    description: 'Perfectly replicated 1:12 scale die-cast model of the Interceptor 650. A must-have for twin lovers.',
+  },
+  {
+    id: 'coll-classic-350-scale-1-3',
+    name: 'Classic 350 Premium Edition (1:3)',
+    category: 'Collectibles',
+    price: 88000,
+    image: '/images/coll-classic-350-large.webp',
+    description: 'Limited edition 1:3 scale hand-built collector model. Crafted from over 900 individual components with real working parts.',
+  }
 ];
 
 export function getAccessoryById(id: string): Accessory | undefined {
