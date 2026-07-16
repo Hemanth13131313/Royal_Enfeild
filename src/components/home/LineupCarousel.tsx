@@ -87,12 +87,12 @@ export function LineupCarousel() {
         </div>
 
         {/* Embla Carousel */}
-        <div className="overflow-hidden -mx-4 px-4 md:mx-0 md:px-0" ref={emblaRef}>
-          <div className="flex gap-4 md:gap-6 cursor-grab active:cursor-grabbing">
+        <div className="overflow-hidden" ref={emblaRef}>
+          <div className="flex -ml-4 md:-ml-6 touch-pan-y cursor-grab active:cursor-grabbing">
             {bikes.map((bike) => (
               <div 
                 key={bike.slug} 
-                className="flex-[0_0_85%] sm:flex-[0_0_45%] lg:flex-[0_0_30%] min-w-0"
+                className="flex-[0_0_85%] sm:flex-[0_0_45%] lg:flex-[0_0_30%] min-w-0 pl-4 md:pl-6"
               >
                 <BikeCard bike={bike} theme="dark" />
               </div>

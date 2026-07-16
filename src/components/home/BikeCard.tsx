@@ -38,7 +38,7 @@ export function BikeCard({ bike, theme = 'dark' }: BikeCardProps) {
       onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateY(0)'; }}
     >
       {/* ── Image Area ────────────────────────────────────── */}
-      <Link to={`/bikes/${bike.slug}`} className="relative h-[220px] w-full p-6 flex items-center justify-center overflow-hidden">
+      <Link to={`/bikes/${bike.slug}`} draggable={false} className="relative h-[220px] w-full p-6 flex items-center justify-center overflow-hidden">
         {/* Glow bg */}
         {!isGoldTheme && (
           <div
