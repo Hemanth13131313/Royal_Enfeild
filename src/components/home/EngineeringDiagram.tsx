@@ -48,7 +48,7 @@ export function EngineeringDiagram() {
           {/* Bike Image */}
           <motion.img
             src="/images/exploded-classic.png"
-            alt="Classic 350 Engineering View"
+            alt="Classic 350 engineering diagram with component callouts"
             className="relative z-10 w-full max-w-[85%] object-contain drop-shadow-[0_20px_40px_rgba(0,0,0,0.9)]"
             initial={{ opacity: 0, scale: 0.95 }}
             animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.95 }}

@@ -20,11 +20,10 @@ export function CtaCards() {
           viewport={inViewport}
         >
           
-          {/* Card 1: Buy */}
           <motion.div variants={fadeUp} className="group relative rounded-2xl overflow-hidden aspect-[16/10] md:aspect-[16/7] lg:aspect-[16/10]">
             <img 
               src="/images/cta-buy.png" 
-              alt="Rider browsing bikes" 
+              alt="Rider browsing Royal Enfield motorcycles at the showroom" 
               className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               loading="lazy"
             />
@@ -42,11 +41,10 @@ export function CtaCards() {
             </div>
           </motion.div>
 
-          {/* Card 2: Sell */}
           <motion.div variants={fadeUp} className="group relative rounded-2xl overflow-hidden aspect-[16/10] md:aspect-[16/7] lg:aspect-[16/10]">
             <img 
               src="/images/cta-sell.png" 
-              alt="Handshake handover of keys" 
+              alt="Customer handing over keys — trade in your motorcycle" 
               className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               loading="lazy"
             />

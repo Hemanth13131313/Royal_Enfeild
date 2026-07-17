@@ -25,7 +25,7 @@ export function BrandStory() {
           >
             <img 
               src="/images/hero-1.png" 
-              alt="Royal Enfield Dealership" 
+              alt="Heritage Motors Royal Enfield dealership interior" 
               className="w-full h-full object-cover"
               loading="lazy"
             />

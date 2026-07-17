@@ -12,22 +12,8 @@ import { SectionTitle } from '../components/ui/SectionTitle';
 import { Button } from '../components/ui/Button';
 import { formatINR } from '../lib/format';
 
-interface Accessory {
-  id: string;
-  name: string;
-  price: number;
-  category: string;
-  image: string;
-}
-
-const ACCESSORIES: Accessory[] = [
-  { id: 'a1', name: 'Touring Mirror Kit', price: 6500, category: 'Protection', image: '/images/hero-1.png' },
-  { id: 'a2', name: 'Engine Guard Compact', price: 3200, category: 'Protection', image: '/images/hero-2.png' },
-  { id: 'a3', name: 'Alloy Wheels Black', price: 12500, category: 'Wheels', image: '/images/hero-3.png' },
-  { id: 'a4', name: 'Pillion Backrest', price: 2800, category: 'Comfort', image: '/images/hero-1.png' },
-  { id: 'a5', name: 'Bar End Mirrors', price: 4500, category: 'Style', image: '/images/hero-2.png' },
-  { id: 'a6', name: 'Touring Seat Rider', price: 3800, category: 'Comfort', image: '/images/hero-3.png' },
-];
+import { accessories } from '../data/accessories';
+import type { Accessory } from '../types';
 
 interface CartItem extends Accessory {
   quantity: number;
@@ -98,7 +84,7 @@ export default function Accessories() {
 
         {/* Product Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-          {ACCESSORIES.map(acc => (
+          {accessories.map(acc => (
             <div key={acc.id} className="group flex flex-col bg-[var(--bg-panel)] border border-[var(--line-dark)] rounded-2xl overflow-hidden hover:-translate-y-1.5 transition-all duration-300 hover:border-[var(--gold)]">
               <div className="relative aspect-square overflow-hidden bg-[rgba(255,255,255,0.02)]">
                 <img src={acc.image} alt={acc.name} loading="lazy" className="w-full h-full object-cover opacity-80 mix-blend-luminosity group-hover:mix-blend-normal transition-all duration-300 group-hover:scale-105" />

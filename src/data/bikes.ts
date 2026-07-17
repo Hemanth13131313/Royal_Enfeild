@@ -42,7 +42,7 @@ export const bikes: Bike[] = [
       { name: 'Rebel Red',    hex: '#8A1E1E' },
     ],
     images: {
-      hero: '/images/bike-hunter-350.png',
+      hero: 'https://upload.wikimedia.org/wikipedia/commons/4/4b/Royal_Enfield_Hunter_350.jpg',
       gallery: [],
     },
     popular: true,

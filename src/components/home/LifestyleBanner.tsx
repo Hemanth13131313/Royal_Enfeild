@@ -35,7 +35,7 @@ export function LifestyleBanner() {
       >
         <img
           src="/images/banner-mountains.png"
-          alt="Royal Enfield Himalayan 450 in the mountains"
+          alt="Royal Enfield Himalayan 450 rider in the mountains at golden hour"
           className="w-full h-full object-cover"
           loading="lazy"
         />

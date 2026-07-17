@@ -23,6 +23,7 @@ export default function Home() {
       <Hero />
       <Ticker />
       <FeaturedShowcase />
+      <PopularBikes />
       <LineupCarousel />
       <BrowseByType />
       
@@ -30,7 +31,6 @@ export default function Home() {
       <EngineeringDiagram />
       <CtaCards />
       <BrandStory />
-      <PopularBikes />
       <ProcessSteps />
     </>
   );
