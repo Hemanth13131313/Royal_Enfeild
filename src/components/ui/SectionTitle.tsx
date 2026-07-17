@@ -10,11 +10,14 @@ import { fadeUp, staggerContainer, inViewport } from '../../lib/motion';
 interface SectionTitleProps {
   overline?: string;
   title: string;
-  titleGold?: string;   // second line in gold gradient
+  titleGold?: string;   // second line in gold gradient (or dark ink, if onGoldBg)
   subtitle?: string;
   theme?: 'dark' | 'light';
   align?: 'left' | 'center';
   className?: string;
+  /** Set true when the section itself has a solid gold background —
+   *  prevents the gold-gradient accent word from disappearing. */
+  onGoldBg?: boolean;
 }
 
 export function SectionTitle({
@@ -25,6 +28,7 @@ export function SectionTitle({
   theme = 'dark',
   align = 'center',
   className = '',
+  onGoldBg = false,
 }: SectionTitleProps) {
   const textColor = theme === 'dark' ? 'text-[var(--ink)]' : 'text-[var(--cream-ink)]';
   const mutedColor = theme === 'dark' ? 'text-[var(--ink-muted)]' : 'text-[var(--cream-muted)]';
@@ -41,7 +45,7 @@ export function SectionTitle({
       {overline && (
         <motion.p
           variants={fadeUp}
-          className="overline text-[var(--gold)]"
+          className={`overline ${onGoldBg ? 'text-[var(--cream-ink)] opacity-70' : 'text-[var(--gold)]'}`}
         >
           {overline}
         </motion.p>
@@ -55,7 +59,11 @@ export function SectionTitle({
         {titleGold && (
           <>
             {' '}
-            <span className="text-gold-gradient">{titleGold}</span>
+            {/* On a gold background the gold-gradient accent is invisible —
+                fall back to dark ink so the word stays legible either way. */}
+            <span className={onGoldBg ? 'text-[var(--cream-ink)]' : 'text-gold-gradient'}>
+              {titleGold}
+            </span>
           </>
         )}
       </motion.h2>

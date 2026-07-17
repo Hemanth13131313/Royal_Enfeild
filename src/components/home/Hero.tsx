@@ -13,7 +13,6 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
 import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
-import { Link } from 'react-router-dom';
 import clsx from 'clsx';
 import { heroSlides } from '../../data/content';
 import { useModal } from '../../hooks/useModal';
@@ -47,15 +46,6 @@ const subVariant = {
   },
 };
 
-const chipVariant = (i: number) => ({
-  initial:  { scale: 0.9, opacity: 0 },
-  animate: {
-    scale: 1,
-    opacity: 1,
-    transition: { type: 'spring' as const, stiffness: 260, damping: 22, delay: 0.55 + i * 0.12 },
-  },
-});
-
 const ctaVariant = {
   initial:  { opacity: 0, y: 12 },
   animate: {
@@ -64,34 +54,6 @@ const ctaVariant = {
     transition: { duration: 0.5, delay: 0.8, ease: 'easeOut' as const },
   },
 };
-
-// ── StatChip ──────────────────────────────────────────────────
-function StatChip({ text }: { text: string }) {
-  // Split "125+ Years of Heritage" → value "125+" + label rest
-  const match = text.match(/^([0-9.,+★✦kKmM%]+(?:\+|M\+|K\+)?)\s+(.+)/);
-  const value = match ? match[1] : null;
-  const label = match ? match[2] : text;
-
-  return (
-    <div
-      className="flex flex-col items-start gap-0.5 rounded-xl px-4 py-3 md:px-5 border border-[var(--line-dark)]"
-      style={{
-        background: 'rgba(23,19,16,.68)',
-        backdropFilter: 'blur(12px)',
-        WebkitBackdropFilter: 'blur(12px)',
-      }}
-    >
-      {value && (
-        <span className="font-display text-[var(--gold)] text-2xl md:text-3xl leading-none">
-          {value}
-        </span>
-      )}
-      <span className="overline text-[var(--ink)] text-[10px] md:text-[11px] leading-tight opacity-80 whitespace-nowrap">
-        {label.toUpperCase()}
-      </span>
-    </div>
-  );
-}
 
 // ── Hero ──────────────────────────────────────────────────────
 export function Hero() {
@@ -231,89 +193,54 @@ export function Hero() {
         </motion.div>
       </AnimatePresence>
 
-      {/* ── Progress bar (top) ────────────────────────────── */}
-      <div className="absolute top-0 left-0 right-0 z-20 h-[3px] bg-[rgba(200,155,60,.15)]">
-        <motion.div
-          key={`bar-${active}`}
-          className="h-full bg-[var(--gold)]"
-          initial={{ scaleX: 0 }}
-          animate={{ scaleX: 1 }}
-          transition={{ duration: SLIDE_DURATION_MS / 1000, ease: 'linear' as const }}
-          style={{ transformOrigin: 'left' }}
-        />
-      </div>
-
       {/* ── Main content ──────────────────────────────────── */}
       <div className="relative z-10 h-full flex flex-col justify-end pb-20 md:pb-24">
         <div className="section-container">
-          <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8">
-
-            {/* Left: Headline + subcopy + CTA */}
-            <motion.div
-              key={`content-${active}`}
-              initial="initial"
-              animate="animate"
-              className="flex flex-col gap-4 max-w-2xl"
+          {/* Headline + subcopy + single CTA — one message per screen.
+              Stats live once, in BrandStory below, instead of being
+              duplicated here. */}
+          <motion.div
+            key={`content-${active}`}
+            initial="initial"
+            animate="animate"
+            className="flex flex-col gap-4 max-w-2xl"
+          >
+            <h1
+              className="font-display leading-none"
+              style={{ fontSize: 'clamp(52px, 9vw, 104px)' }}
             >
-              {/* Two-line headline */}
-              <h1
-                className="font-display leading-none"
-                style={{ fontSize: 'clamp(52px, 9vw, 104px)' }}
+              <motion.span
+                className="block text-[var(--ink)]"
+                {...lineVariants(0.15)}
               >
-                <motion.span
-                  className="block text-[var(--ink)]"
-                  {...lineVariants(0.15)}
-                >
-                  {slide.line1}
-                </motion.span>
-                <motion.span
-                  className="block text-gold-gradient"
-                  {...lineVariants(0.30)}
-                >
-                  {slide.line2}
-                </motion.span>
-              </h1>
-
-              {/* Subcopy */}
-              <motion.p
-                className="font-body text-base md:text-lg text-[var(--ink-muted)] max-w-md leading-relaxed"
-                {...subVariant}
+                {slide.line1}
+              </motion.span>
+              <motion.span
+                className="block text-gold-gradient"
+                {...lineVariants(0.30)}
               >
-                {slide.subCopy}
-              </motion.p>
+                {slide.line2}
+              </motion.span>
+            </h1>
 
-              {/* CTAs */}
-              <motion.div className="flex items-center gap-3 mt-2" {...ctaVariant}>
-                <Button
-                  variant="primary"
-                  size="md"
-                  showArrow
-                  onClick={() => openModal()}
-                >
-                  Book Test Ride
-                </Button>
-                <Link to="/bikes">
-                  <Button variant="outline" size="md">
-                    Explore Bikes
-                  </Button>
-                </Link>
-              </motion.div>
-            </motion.div>
-
-            {/* Right: Stat chips (A4) */}
-            <motion.div
-              key={`chips-${active}`}
-              initial="initial"
-              animate="animate"
-              className="flex flex-row lg:flex-col gap-3 lg:gap-2.5 flex-wrap"
+            <motion.p
+              className="font-body text-base md:text-lg text-[var(--ink-muted)] max-w-md leading-relaxed"
+              {...subVariant}
             >
-              {slide.chips.map((chip, i) => (
-                <motion.div key={chip} {...chipVariant(i)}>
-                  <StatChip text={chip} />
-                </motion.div>
-              ))}
+              {slide.subCopy}
+            </motion.p>
+
+            <motion.div className="mt-2" {...ctaVariant}>
+              <Button
+                variant="primary"
+                size="md"
+                showArrow
+                onClick={() => openModal()}
+              >
+                Book Test Ride
+              </Button>
             </motion.div>
-          </div>
+          </motion.div>
         </div>
       </div>
 
@@ -369,17 +296,6 @@ export function Hero() {
             )}
           />
         ))}
-      </div>
-
-      {/* ── Slide counter (top-right) ───────────────────── */}
-      <div className="absolute top-24 right-6 md:right-10 z-20 hidden md:flex items-center gap-1.5">
-        <span className="font-display text-[var(--gold)] text-2xl leading-none">
-          {String(active + 1).padStart(2, '0')}
-        </span>
-        <span className="text-[var(--ink-muted)] text-sm mt-1">/</span>
-        <span className="font-body text-[var(--ink-muted)] text-sm mt-1">
-          {String(total).padStart(2, '0')}
-        </span>
       </div>
     </section>
   );

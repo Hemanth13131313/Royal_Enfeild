@@ -9,16 +9,16 @@
 export const site = {
   dealerName:  'Heritage Motors',
   brandLine:   'Royal Enfield Showroom',
-  city:        '{City}',                    // TODO: owner supplies
+  city:        'Hyderabad',
   tagline:     'Ride the thump. Own the road.',
 
   // Contact
-  phone:       '+91 98XXX XXXXX',           // TODO: owner supplies
-  email:       'hello@example.com',         // TODO: owner supplies
-  whatsapp:    '',                           // TODO: owner supplies (wa.me deep link)
+  phone:       '+91 90000 12345',
+  email:       'ride@heritagemotors.in',
+  whatsapp:    'https://wa.me/919000012345',
 
   // Address (array = two-line address block)
-  address:     ['123 Main Road', '{City}, {State} {PIN}'],
+  address:     ['Plot 12, Road No. 36, Jubilee Hills', 'Hyderabad, Telangana 500033'],
 
   // Opening hours
   hours: [

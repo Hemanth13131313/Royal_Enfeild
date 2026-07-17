@@ -11,8 +11,8 @@ import { usePageMeta } from '../hooks/usePageMeta';
 import { SectionTitle } from '../components/ui/SectionTitle';
 import { Button } from '../components/ui/Button';
 import { formatINR } from '../lib/format';
-
 import { accessories } from '../data/accessories';
+import { site } from '../config/site';
 import type { Accessory } from '../types';
 
 interface CartItem extends Accessory {
@@ -52,7 +52,7 @@ export default function Accessories() {
 
   const totalItems = cart.reduce((acc, item) => acc + item.quantity, 0);
   const subtotal = cart.reduce((acc, item) => acc + (item.price * item.quantity), 0);
-  const whatsappUrl = `https://wa.me/919876543210?text=Hi, I would like to enquire about the following accessories:%0A${cart.map(i => `${i.name} (x${i.quantity})`).join('%0A')}%0A*Total:* ${formatINR(subtotal)}`;
+  const whatsappUrl = `${site.whatsapp}?text=Hi, I would like to enquire about the following accessories:%0A${cart.map(i => `${i.name} (x${i.quantity})`).join('%0A')}%0A*Total:* ${formatINR(subtotal)}`;
 
   return (
     <main className="min-h-screen bg-[var(--bg-deep)] pt-32 pb-24 relative overflow-hidden">

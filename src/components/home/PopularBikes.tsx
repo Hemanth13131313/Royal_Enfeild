@@ -15,15 +15,14 @@ export function PopularBikes() {
   const popularBikes = popularSlugs.map(slug => bikes.find(b => b.slug === slug)).filter(Boolean) as typeof bikes;
 
   return (
-    <section className="bg-[var(--gold)] py-20 md:py-28 overflow-hidden">
+    <section className="bg-[var(--bg-deep)] border-t-2 border-[var(--gold)] py-20 md:py-28 overflow-hidden">
       <div className="section-container">
-        
-        {/* We use dark theme for title because it's dark text on gold */}
+
         <SectionTitle
           title="Most Popular"
           titleGold="Models"
           overline="Rider Favorites"
-          theme="light"
+          theme="dark"
         />
 
         <motion.div 
@@ -35,7 +34,7 @@ export function PopularBikes() {
         >
           {popularBikes.map((bike) => (
             <motion.div key={bike.slug} variants={fadeUp}>
-              <BikeCard bike={bike} theme="gold" />
+              <BikeCard bike={bike} theme="dark" />
             </motion.div>
           ))}
         </motion.div>
