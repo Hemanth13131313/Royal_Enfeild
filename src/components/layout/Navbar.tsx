@@ -49,6 +49,9 @@ export function Navbar() {
   const { openModal } = useModal();
   const { pathname } = useLocation();
 
+  const isLightTop = ['/bikes', '/service', '/contact'].includes(pathname);
+  const useDarkText = isLightTop && !scrolled;
+
   // A9 — scroll detection: transparent → glass
   useEffect(() => {
     const handler = () => setScrolled(window.scrollY > 40);
@@ -94,7 +97,7 @@ export function Navbar() {
             className="flex flex-col focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--gold)]"
             aria-label={`${site.dealerName} — Home`}
           >
-            <span className="font-display text-[var(--ink)] text-2xl leading-none tracking-wide">
+            <span className={clsx("font-display text-2xl leading-none tracking-wide", useDarkText ? "text-[var(--cream-ink)]" : "text-[var(--ink)]")}>
               {site.dealerName.toUpperCase()}
             </span>
             <span className="overline text-[var(--gold)] text-[9px] mt-0.5 hidden sm:block">
@@ -112,7 +115,7 @@ export function Navbar() {
                 onKeyDown={e => e.key === 'Enter' && setDropdownOpen(p => !p)}
                 aria-expanded={dropdownOpen}
                 aria-haspopup="true"
-                className="flex items-center gap-1 font-body font-medium text-sm text-[var(--ink)] hover:text-[var(--gold)] transition-colors focus-visible:outline-none"
+                className={clsx("flex items-center gap-1 font-body font-medium text-sm transition-colors focus-visible:outline-none", useDarkText ? "text-[var(--cream-ink)] hover:text-[var(--gold-deep)]" : "text-[var(--ink)] hover:text-[var(--gold)]")}
               >
                 Bikes
                 <ChevronDown
@@ -189,7 +192,7 @@ export function Navbar() {
                   'font-body font-medium text-sm transition-colors',
                   pathname === link.href
                     ? 'text-[var(--gold)]'
-                    : 'text-[var(--ink)] hover:text-[var(--gold)]'
+                    : useDarkText ? 'text-[var(--cream-ink)] hover:text-[var(--gold-deep)]' : 'text-[var(--ink)] hover:text-[var(--gold)]'
                 )}
               >
                 {link.label}
@@ -204,7 +207,7 @@ export function Navbar() {
             <Link
               to="/accessories"
               aria-label={`Shopping cart — ${totalQty} item${totalQty !== 1 ? 's' : ''}`}
-              className="relative flex items-center justify-center w-10 h-10 text-[var(--ink-muted)] hover:text-[var(--gold)] transition-colors"
+              className={clsx("relative flex items-center justify-center w-10 h-10 transition-colors", useDarkText ? "text-[var(--cream-ink)] hover:text-[var(--gold-deep)]" : "text-[var(--ink-muted)] hover:text-[var(--gold)]")}
             >
               <ShoppingCart size={20} />
               {totalQty > 0 && (
@@ -235,7 +238,7 @@ export function Navbar() {
               onClick={() => setMobileOpen(true)}
               aria-label="Open navigation menu"
               aria-expanded={mobileOpen}
-              className="lg:hidden w-10 h-10 flex items-center justify-center text-[var(--ink)] hover:text-[var(--gold)] transition-colors"
+              className={clsx("lg:hidden w-10 h-10 flex items-center justify-center transition-colors", useDarkText ? "text-[var(--cream-ink)] hover:text-[var(--gold-deep)]" : "text-[var(--ink)] hover:text-[var(--gold)]")}
             >
               <Menu size={22} />
             </button>
